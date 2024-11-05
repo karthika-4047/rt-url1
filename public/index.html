@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT URL Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>RT URL Analyzer</h1>
+        
+        <!-- Input Section -->
+        <div class="input-section">
+            <textarea id="urlInput" placeholder="Enter URLs (one per line, minimum 10)" rows="10"></textarea>
+            <button id="fetchButton">Fetch URLs</button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <!-- Link Statistics Section -->
+            <div class="statistics-section" style="margin-bottom: 20px; padding: 15px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <h3 style="margin-bottom: 10px; color: #334155;">Link Statistics</h3>
+                <div style="display: flex; gap: 20px; justify-content: space-around;">
+                    <div style="background: #dbeafe; padding: 10px; border-radius: 6px; flex: 1; text-align: center;">
+                        <strong>aka.ms → query.prod Links:</strong> 
+                        <span id="akaToQueryCount">0</span>
+                    </div>
+                    <div style="background: #fef3c7; padding: 10px; border-radius: 6px; flex: 1; text-align: center;">
+                        <strong>Direct query.prod Links:</strong> 
+                        <span id="directQueryCount">0</span>
+                    </div>
+                    <!-- <div style="background: #e2e8f0; padding: 10px; border-radius: 6px; flex: 1; text-align: center;">
+                        <strong>Total Special Links:</strong> 
+                        <span id="totalSpecialCount">0</span>
+                    </div> -->
+                </div>
+            </div>
+
+            <h2>Results</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>URLs Fetched</th>
+                        <th>Redirecting URLs</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </div>
+
+        <!-- aka.ms Results Section -->
+        <div class="aka-section" id="akaSection" style="display: none;">
+            <h2>aka.ms Links</h2>
+            <table id="akaTable">
+                <thead>
+                    <tr>
+                        <th>aka.ms URL</th>
+                        <th>Destination URL</th>
+                    </tr>
+                </thead>
+                <tbody id="akaBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="spinner" style="display: none;">
+            <div class="spinner-inner"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
